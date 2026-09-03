@@ -1,0 +1,10 @@
+{
+  "description": "Accelerate engineering design with AI-driven prototyping and web-based modeling tools for mechanical, electrical, and industrial setups in minutes.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
