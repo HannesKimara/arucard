@@ -1,8 +1,9 @@
 import { useState } from "react";
+import { Link } from "react-router";
 
-type Tool = { name: string; desc: string; tag: string; category: string };
+export type Tool = { name: string; desc: string; tag: string; category: string };
 
-const TOOL_CATEGORIES = [
+export const TOOL_CATEGORIES = [
   {
     name: "Beams & Analysis",
     icon: "⊥",
@@ -10,7 +11,6 @@ const TOOL_CATEGORIES = [
       { name: "Beam Calculator", desc: "FEM solver with shear, moment & deflection — NBR 8800 × AISC 360 side by side, 974+ flexural profiles", tag: "FEM" },
       { name: "Cantilever Beam Calculator", desc: "Fixed–free beam analysis — tip deflection, fixing moment, and code checks", tag: "STRUCT" },
       { name: "Portal Frame Calculator", desc: "Real 2D frame FEM with gravity + wind loads, N/V/M diagrams, and base reactions", tag: "FEM" },
-      { name: "Shear & Moment Diagram", desc: "SFD & BMD for classic or custom loading with equilibrium equations", tag: "ANALYSIS" },
     ],
   },
   {
@@ -62,9 +62,14 @@ const ALL_TOOLS: Tool[] = TOOL_CATEGORIES.flatMap((c) =>
 
 const ALL_CATEGORIES = ["All", ...TOOL_CATEGORIES.map((c) => c.name)];
 
+export function toolSlug(name: string) {
+  return name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+}
+
 function ToolCard({ tool, focused, onFocus }: { tool: Tool; focused: boolean; onFocus: () => void }) {
   return (
-    <button
+    <Link
+      to={`/tools/${toolSlug(tool.name)}`}
       onClick={onFocus}
       className="text-left w-full group rounded-xl p-5 transition-all duration-150"
       style={{
@@ -104,7 +109,7 @@ function ToolCard({ tool, focused, onFocus }: { tool: Tool; focused: boolean; on
       </div>
       <div className="text-xs mb-3" style={{ color: "var(--text-dim)", lineHeight: 1.65 }}>{tool.desc}</div>
       <div className="mono text-xs" style={{ color: "var(--text-muted)" }}>{tool.category}</div>
-    </button>
+    </Link>
   );
 }
 

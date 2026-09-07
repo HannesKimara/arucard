@@ -531,58 +531,6 @@ export default function Home() {
             </button>
           </div>
 
-          <div className="grid gap-4" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))" }}>
-            {[
-              {
-                name: "SOLO",
-                price: "Free",
-                note: "1 seat · 5 models/mo",
-                features: ["AI prompt engine", "All calculators", "STL export"],
-                highlight: false,
-              },
-              {
-                name: "TEAM",
-                price: "$149/mo",
-                note: "Up to 10 seats",
-                features: ["Unlimited models", "FEM validation", "STEP / DXF export", "Collaboration"],
-                highlight: true,
-              },
-              {
-                name: "ENTERPRISE",
-                price: "Custom",
-                note: "Unlimited seats",
-                features: ["SSO & audit logs", "PLM integration", "Dedicated support", "SLA"],
-                highlight: false,
-              },
-            ].map((plan) => (
-              <div
-                key={plan.name}
-                className="p-6 rounded-xl text-left"
-                style={{
-                  border: `1px solid ${plan.highlight ? "var(--yellow)" : "var(--border)"}`,
-                  background: plan.highlight ? "var(--yellow-dim)" : "var(--surface)",
-                }}
-              >
-                <div className="mono text-xs mb-3" style={{ color: plan.highlight ? "var(--yellow)" : "var(--text-muted)" }}>
-                  {plan.name}
-                </div>
-                <div
-                  className="font-black text-3xl mb-1"
-                  style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
-                >
-                  {plan.price}
-                </div>
-                <div className="text-xs mb-5" style={{ color: "var(--text-muted)" }}>{plan.note}</div>
-                <ul className="space-y-2">
-                  {plan.features.map((f) => (
-                    <li key={f} className="flex items-center gap-2 text-xs" style={{ color: "var(--text-dim)" }}>
-                      <span style={{ color: "var(--yellow)" }}>✓</span> {f}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
     </div>

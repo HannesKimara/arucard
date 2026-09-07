@@ -19,7 +19,7 @@ export default function Root() {
         className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12"
         style={{
           height: 64,
-          background: "rgba(10,10,0,0.9)",
+          background: "rgba(10,11,9,0.88)",
           backdropFilter: "blur(14px)",
           borderBottom: "1px solid var(--border)",
         }}
@@ -90,13 +90,12 @@ export default function Root() {
             Sign in
           </a>
           <button
-            className="text-sm font-bold px-5 py-2 rounded transition-all duration-150"
+            className="text-sm font-bold px-5 py-2 rounded-full transition-all duration-150"
             style={{
               background: "var(--yellow)",
-              color: "#0a0a00",
-              fontFamily: "'Barlow Condensed', sans-serif",
-              letterSpacing: "0.07em",
-              fontSize: 13,
+              color: "#0a0b09",
+              letterSpacing: "0.02em",
+              fontSize: 12,
             }}
           >
             REQUEST ACCESS
@@ -111,7 +110,7 @@ export default function Root() {
       {open && (
         <div
           className="fixed inset-0 z-40 flex flex-col pt-20 px-6 md:hidden"
-          style={{ background: "rgba(10,10,0,0.97)", borderBottom: "1px solid var(--border)" }}
+          style={{ background: "rgba(10,11,9,0.98)", borderBottom: "1px solid var(--border)" }}
         >
           {NAV_LINKS.map((l) => (
             <NavLink
